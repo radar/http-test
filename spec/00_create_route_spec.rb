@@ -2,7 +2,7 @@ require "spec_helper"
 
 RSpec.describe "POST /ratingQuestions" do
   let(:new_title) { "Hello World" }
-  let(:tag) { "new tag" }
+  let(:new_tag) { "new tag" }
 
   context "when the request has a body" do
     let(:response) { HTTP.post("#{SERVER}/ratingQuestions", json: { title: new_title, tag: new_tag }) }
