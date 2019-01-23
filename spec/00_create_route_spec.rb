@@ -2,9 +2,10 @@ require "spec_helper"
 
 RSpec.describe "POST /ratingQuestions" do
   let(:new_title) { "Hello World" }
+  let(:tag) { "new tag" }
 
   context "when the request has a body" do
-    let(:response) { HTTP.post("#{SERVER}/ratingQuestions", json: { title: new_title }) }
+    let(:response) { HTTP.post("#{SERVER}/ratingQuestions", json: { title: new_title, tag: new_tag }) }
 
     it "returns a 201 Created" do
       expect(response.status).to eq(201)
@@ -15,6 +16,7 @@ RSpec.describe "POST /ratingQuestions" do
       expect(question.is_a?(Hash)).to eq(true)
       expect(question.key?("id")).to eq(true)
       expect(question["title"]).to eq(new_title)
+      expect(question["tag"]).to eq(new_tag)
     end
   end
 
