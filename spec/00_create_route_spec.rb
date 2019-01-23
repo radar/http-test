@@ -23,13 +23,21 @@ RSpec.describe "POST /ratingQuestions" do
   context "when the request has no body" do
     let(:response) { HTTP.post("#{SERVER}/ratingQuestions") }
 
+    it "returns a 400 Bad Request" do
+      expect(response.status).to eq(400)
+    end
+  end
+
+  context "when the request has a blank title" do
+    let(:response) { HTTP.post("#{SERVER}/ratingQuestions", json: { title: "" }) }
+
     it "returns a 422 Invalid Resource" do
       expect(response.status).to eq(422)
     end
 
     it "has no title attribute" do
       error = response.parse
-      expect(error).to eq({"errors" => [{"title" => "cannot be blank"}]})
+      expect(error).to eq({"errors" => {"title" => ["cannot be blank"]}})
     end
   end
 end
