@@ -11,8 +11,8 @@ RSpec.describe "DELETE /ratingQuestions/:id" do
       HTTP.delete("#{SERVER}/ratingQuestions/#{question["id"]}")
     end
 
-    it "returns a 200 No Content" do
-      expect(response.status).to eq(200)
+    it "returns a 204 No Content" do
+      expect(response.status).to eq(204)
     end
 
     it "returns nothing" do
