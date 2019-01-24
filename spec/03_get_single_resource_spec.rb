@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe "PUT /ratingQuestions/:id" do
+RSpec.describe "GET /ratingQuestions/:id" do
   context "when the question exists" do
     let(:question) do
       response = HTTP.post("#{SERVER}/ratingQuestions", json: { title: "Hello World" })
