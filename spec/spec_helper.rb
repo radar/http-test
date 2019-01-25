@@ -104,6 +104,11 @@ RSpec.configure do |config|
 
   config.before do
     response = HTTP.get(SERVER + "/ratingQuestions")
+
+    if response.status != 200
+      raise "Could not get list of questions! Server returned status = #{response.status}. Check your server's output! "
+    end
+
     response.parse.each do |question|
       HTTP.delete(SERVER + "/ratingQuestions/#{question["id"]}")
     end
