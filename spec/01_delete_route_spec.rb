@@ -16,7 +16,7 @@ RSpec.describe "DELETE /ratingQuestions/:id" do
     end
 
     it "returns nothing" do
-      expect(response.parse).to eq({})
+      expect(response.body.to_s).to eq('')
     end
   end
 
