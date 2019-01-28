@@ -23,7 +23,7 @@ RSpec.describe "PUT /ratingQuestions/:id" do
 
   context "asking to PUT a question that doesn't exist" do
     let(:response) do
-      HTTP.put("#{SERVER}/ratingQuestions/i-will-never-exist")
+      HTTP.put("#{SERVER}/ratingQuestions/i-will-never-exist", json: { title: "hello"})
     end
 
     it "returns a 404 Not Found" do

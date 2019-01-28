@@ -17,13 +17,13 @@ RSpec.describe "PATCH /ratingQuestions/:id" do
       question = response.parse
       expect(question.is_a?(Hash)).to eq(true)
       expect(question["title"]).to eq("Hello World")
-      expect(question["extra_field"]).to eq("Hello Mars")
+      expect(question["tag"]).to eq("greetings")
     end
   end
 
   context "asking to get a question that doesn't exist" do
     let(:response) do
-      HTTP.patch("#{SERVER}/ratingQuestions/i-will-never-exist")
+      HTTP.patch("#{SERVER}/ratingQuestions/i-will-never-exist", json: { title: "not here"})
     end
 
     it "returns a 404 Not Found" do
