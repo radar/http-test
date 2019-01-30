@@ -37,7 +37,7 @@ RSpec.describe "POST /ratingQuestions" do
 
     it "shows errors that the title cannot be blank" do
       error = response.parse
-      expect(error).to eq({"errors" => {"title" => ["cannot be blank"]}})
+      expect(error).to eq({"errors" => {"title" => ["can't be blank"]}})
     end
   end
 end
