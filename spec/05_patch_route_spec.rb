@@ -7,7 +7,7 @@ RSpec.describe "PATCH /ratingQuestions/:id" do
       response.parse
     end
 
-    let(:response) { HTTP.patch("#{SERVER}/ratingQuestions/#{question["id"]}", json: { extra_field: "Hello Mars" })}
+    let(:response) { HTTP.patch("#{SERVER}/ratingQuestions/#{question["id"]}", json: { tag: "greetings" })}
 
     it "returns a 200 OK" do
       expect(response.status).to eq(200)
