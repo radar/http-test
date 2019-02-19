@@ -17,7 +17,7 @@ RSpec.describe "PUT /ratingQuestions/:id" do
       question = response.parse
       expect(question.is_a?(Hash)).to eq(true)
       expect(question["title"]).to eq("Hello Mars")
-      expect(question.key?("tag")).to be false
+      expect(question.key?("tag")).to be true
     end
   end
 
